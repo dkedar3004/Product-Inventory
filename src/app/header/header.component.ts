@@ -3,7 +3,7 @@ import { off } from 'process';
 import {MatDialog } from '@angular/material/dialog';
 import { FormNavComponent } from '../form-nav/form-nav.component';
 import { Service } from '../services/service';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -12,10 +12,18 @@ import { Service } from '../services/service';
 })
 export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
+  subscription: Subscription; 
+  hasloggedin;
   constructor(public dialog: MatDialog,
               public service: Service) {
+                this.subscription = this.service.getMessage().subscribe(message => {
+                  if (message) {
+                    this.hasloggedin=message;
+                  } 
+                });
+                this.hasloggedin=localStorage.getItem("isLogged")?true:false;
+                console.log("hehhe"+(localStorage.getItem("isLogged")?true:false))
    }
-  hasloggedin=true;
   searchText;
   checkedCount=true;
   name;
@@ -31,8 +39,11 @@ export class HeaderComponent implements OnInit {
      {name: 'product3', manufacturer: 'Amazon', price: '$12', qty: 24, img:'https://www.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png'}
     ];
   ngOnInit(): void {
-    this.hasloggedin=this.service.checkUser();
-    console.log(this.service.checkUser());
+
+  }
+  logout(){
+    localStorage.clear();
+    this.hasloggedin=false;
   }
   public onToggleSidenav = () => { 
     this.sidenavToggle.emit();

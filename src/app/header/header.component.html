@@ -10,8 +10,8 @@
     <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
         <ul fxLayout fxLayoutGap="15px" class="navigation-items">
             <li>
-                <a *ngIf="hasloggedin" (click)="openDialogBox()">Log In / Sign Up</a>
-                <a *ngIf="!hasloggedin" (click)="openDialogBox()">Log out</a>
+                <a *ngIf="!hasloggedin" (click)="openDialogBox()">Log In / Sign Up</a>
+                <a *ngIf="hasloggedin" (click)="logout()">Log out</a>
             </li>
             <li>
                 <a routerLink="/account">About</a>

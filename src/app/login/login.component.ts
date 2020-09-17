@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/userService';
 import {MatDialog ,MatDialogRef  } from '@angular/material/dialog';
 import { FormNavComponent } from "../form-nav/form-nav.component"
 import { LoginPopUpComponent } from '../login-pop-up/login-pop-up.component';
-
+import { Service } from '../services/service';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +17,9 @@ export class LoginComponent implements OnInit {
   submitted = false;
   allUsers=[];
   allEmails= new Array();
-
+  
   constructor(public formBuilder: FormBuilder,
+              public service: Service,
               public userService : UserService,
               public dialogRef: MatDialogRef<FormNavComponent>,
               public dialog: MatDialog) { }
@@ -47,18 +48,17 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
       this.submitted = true;
-      // stop here if form is invalid
       if (this.registerForm.invalid) {
           return;
       }
       if(this.allUsers.find(element=>(element.email==this.registerForm.value.email))){
         if(this.allUsers.find(element=>element.password==this.registerForm.value.password)){
-           localStorage.setItem("islogged",JSON.stringify(true));
+           localStorage.setItem("isLogged",JSON.stringify(true));
+           this.service.sendMessage(true);
            this.dialogRef.close();
            this.openDialog("successful","Login Successful");
         }else{
-           this.dialogRef.close();
-           this.openDialog("wrongPassword","Please enter valid password!!!!!!");
+            this.openDialog("incorrectPassword","Please enter correct password");
         }
       }
       else{
