@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "firstName": "Rajat",
+      "lastName": "Kumar",
+      "email": "kumar.rajat11114@gmail.com",
+      "password": "123456",
+      "location": "Gurgoan",
+      "phoneNumber": 9868444505,
+      "id": 1
+    }
+  ]
+}

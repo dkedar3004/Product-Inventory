@@ -1,0 +1,14 @@
+<div class="flex-container">
+   <h1 (click)="changeControl(formType1)">Register</h1>
+   <h1>|</h1>
+   <h1 (click)="changeControl(formType2)">Login</h1>
+</div>
+<div *ngIf="selectedForm">
+    <app-register>
+    </app-register>
+</div>
+<div *ngIf="!selectedForm">
+    <app-login>
+    </app-login>
+</div>
+
