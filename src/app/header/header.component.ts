@@ -1,9 +1,9 @@
 import { Component, OnInit, Output, EventEmitter , OnChanges  } from '@angular/core';
-import { off } from 'process';
 import {MatDialog } from '@angular/material/dialog';
 import { FormNavComponent } from '../form-nav/form-nav.component';
 import { Service } from '../services/service';
 import { Subscription } from 'rxjs';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
 
 @Component({
   selector: 'app-header',
@@ -17,12 +17,10 @@ export class HeaderComponent implements OnInit {
   constructor(public dialog: MatDialog,
               public service: Service) {
                 this.subscription = this.service.getMessage().subscribe(message => {
-                  if (message) {
+                  console.log(message)
                     this.hasloggedin=message;
-                  } 
                 });
                 this.hasloggedin=localStorage.getItem("isLogged")?true:false;
-                console.log("hehhe"+(localStorage.getItem("isLogged")?true:false))
    }
   searchText;
   checkedCount=true;
@@ -43,7 +41,9 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     localStorage.clear();
-    this.hasloggedin=false;
+    // this.service.sendMessage(false);
+    // this.hasloggedin=false;
+    this.service.clearMessages();
   }
   public onToggleSidenav = () => { 
     this.sidenavToggle.emit();
@@ -102,6 +102,11 @@ delete()
   }
 }
 
-
+viewProfile(){
+  const dialogRef = this.dialog.open(UserProfileComponent, {
+    height: '250px',
+    width: '400px',
+  });
+}
 }
 

@@ -8,6 +8,15 @@
       "location": "Gurgoan",
       "phoneNumber": 9868444505,
       "id": 1
+    },
+    {
+      "firstName": "Rohit",
+      "lastName": "Shukla",
+      "email": "rohitshukla.shukla07@gmail.com",
+      "password": "1234567",
+      "location": "noida",
+      "phoneNumber": 7772022626,
+      "id": 2
     }
   ]
 }

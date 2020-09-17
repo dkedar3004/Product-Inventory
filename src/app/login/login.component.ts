@@ -5,6 +5,7 @@ import {MatDialog ,MatDialogRef  } from '@angular/material/dialog';
 import { FormNavComponent } from "../form-nav/form-nav.component"
 import { LoginPopUpComponent } from '../login-pop-up/login-pop-up.component';
 import { Service } from '../services/service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -26,9 +27,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
       this.allUsers=this.userService.getData();
-      console.log(this.allUsers)
-
-
       this.registerForm = this.formBuilder.group({
           email: ['', [Validators.required, Validators.email]],
           password: ['', [Validators.required]]
@@ -51,17 +49,18 @@ export class LoginComponent implements OnInit {
       if (this.registerForm.invalid) {
           return;
       }
-      if(this.allUsers.find(element=>(element.email==this.registerForm.value.email))){
-        if(this.allUsers.find(element=>element.password==this.registerForm.value.password)){
-           localStorage.setItem("isLogged",JSON.stringify(true));
-           this.service.sendMessage(true);
-           this.dialogRef.close();
-           this.openDialog("successful","Login Successful");
-        }else{
-            this.openDialog("incorrectPassword","Please enter correct password");
-        }
+      if(this.allUsers.find(element=>(element.email==this.registerForm.value.email && element.password==this.registerForm.value.password))){
+        localStorage.setItem("isLogged",JSON.stringify(true));
+        let user = this.allUsers.find(element=>(element.email==this.registerForm.value.email)?element:null)
+        localStorage.setItem("user",JSON.stringify(user));
+        this.service.sendMessage(true);
+        this.dialogRef.close();
+        this.openDialog("successful","Login Successful");
       }
-      else{
+      else if(this.allUsers.find(element=>(element.email==this.registerForm.value.email && element.password!==this.registerForm.value.password))){
+        this.openDialog("incorrectPassword","Please enter correct password");
+      }
+      else{ 
            this.dialogRef.close();
            this.openDialog("emailDoesNotExist","Please SignUp First!!!!!!")
       }

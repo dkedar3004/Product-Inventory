@@ -16,6 +16,9 @@
             <li>
                 <a routerLink="/account">About</a>
             </li>
+            <li>
+                <a *ngIf="hasloggedin" (click)="viewProfile()">View Profile</a>
+            </li>
         </ul>
     </div>
   </mat-toolbar>

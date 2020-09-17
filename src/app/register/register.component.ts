@@ -37,29 +37,13 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
       this.submitted = true;
 
-      // stop here if form is invalid
       if (this.registerForm.invalid) {
           return;
       }
+
       this.userService.addUser(this.registerForm.value);
       localStorage.setItem("islogged",JSON.stringify(false));
       this.dialogRef.close();
-    //   let temp = new Array();
-    //       console.log(localStorage.getItem("Users"))
-    //       if(!localStorage.getItem("Users")){
-    //           console.log("no storage");
-    //           temp.push(this.registerForm.value)
-    //           localStorage.setItem("Users",JSON.stringify(temp))
-    //       }
-    //       else{
-    //         console.log("Storage exists")  
-    //         temp=JSON.parse(localStorage.getItem("Users"));
-    //         temp.push(this.registerForm.value)
-    //         localStorage.setItem("Users",JSON.stringify(temp))
-    //       }
-
-
-        // this.router.navigate(['/'])
   }  
 
 }

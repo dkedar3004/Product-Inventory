@@ -11,7 +11,6 @@ export class UserService {
            resp.data.map((user)=>{
             data.push(user);
            })   
-           console.log(data[0].id)
         })
         .catch(error => {
             console.log(error);

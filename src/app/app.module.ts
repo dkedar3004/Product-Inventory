@@ -63,6 +63,7 @@ import { FormNavComponent } from './form-nav/form-nav.component';
 import { Service } from './services/service'; 
 import { UserService } from './services/userService';
 import { LoginPopUpComponent } from './login-pop-up/login-pop-up.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { LoginPopUpComponent } from './login-pop-up/login-pop-up.component';
     LoginComponent,
     RegisterComponent,
     FormNavComponent,
-    LoginPopUpComponent
+    LoginPopUpComponent,
+    UserProfileComponent
   ],
   imports: [
     Ng2SearchPipeModule,
