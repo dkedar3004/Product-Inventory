@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Delete Product</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Are you Sure to Delete Following Products : </h3>
+  <div *ngFor="let i of data.delete">
+    <p>{{i.product_name}}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Delete</button>
+</mat-dialog-actions>

@@ -1,0 +1,18 @@
+.div{
+    width: 960px;
+position: relative;
+margin:0 auto;
+line-height: 1.4em;
+}
+chart
+{
+    display: block;
+}
+.flex-container
+{
+    
+    display:flex;
+    /* width: 100%; */
+    
+
+}

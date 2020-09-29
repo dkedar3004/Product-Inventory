@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Product Details</h2>
+<mat-dialog-content class="mat-typography">
+  <h3><b>Product Name</b>   :{{this.data.product_name}}</h3>
+
+   <div class="product_img" >
+    <img src="{{this.data.img}}" alt="">   
+   </div> 
+  
+
+  <h3 style="width: 450px;"><b>Product Description</b> : {{this.data.description}}</h3>
+
+
+  <h3><b>Manufactured By:</b> {{this.data.manufacturer}}</h3>
+ 
+
+  <h3><b>Price</b>:$ {{this.data.price}}</h3>
+
+
+    
+  <h3><b>Quantity</b>: {{this.data.qty}}</h3>
+ 
+
+ 
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Add to Cart</button>
+</mat-dialog-actions>
+
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

@@ -1,16 +1,138 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation">
-    <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list> 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Search Product</mat-label>
+          <input matInput placeholder="Ex. Product 1" value="" [(ngModel)]="searchText" name="search">
+        </mat-form-field>
+      </form>
+
+      <section class="example-section" #constant>
+        <mat-checkbox class="example-margin" (click)="priceCheck()">Price</mat-checkbox>
+        <mat-checkbox class="example-margin" (click)="qtyCheck()">Quantity</mat-checkbox>
+        <mat-checkbox class="example-margin" (click)="manuCheck()">ManuFacturor</mat-checkbox>
+      </section>
+      
+
+      <button mat-raised-button color="basic" class="graph" id="most" (click)="openDialog4()">Most Viewed
+        Products</button>
+      <br>
+      <!-- <mat-selection-list #shoes class="products">
+        <cdk-virtual-scroll-viewport itemSize="5" class="example-viewport">
+          <mat-list-option *ngFor="let item of products | filter:searchText">
+            <mat-list-item (click)="deleteClick(item)">
+              <p style="margin-left: 20px;text-align: center;">{{item.id}}</p>
+              <img matListAvatar src="{{item.logo}}" alt="..." (click)="openDialog3(item.id)">
+
+
+              <button mat-stroked-button color="primary"
+                style="width:150px;margin-left: 10px;">{{item.product_name}}</button>
+              <button mat-stroked-button color="primary" *ngIf="price"
+                style="margin-left: 150px;width: 120px;text-align: center;">Price :{{item.price}}</button>
+              <button mat-stroked-button color="primary" *ngIf="qty" style="margin-left: 150px;width: 100px;">Qty
+                :{{item.qty}}</button>
+              <button mat-stroked-button color="primary" *ngIf="ManuFacturor"
+                style="margin-left: 130px;width: 200px;">Manufacturer:{{item.manufacturer}}</button>
+
+              <mat-divider></mat-divider>
+            </mat-list-item>
+
+          </mat-list-option>
+        </cdk-virtual-scroll-viewport>
+
+      </mat-selection-list> -->
+      
+
+      <cdk-virtual-scroll-viewport itemSize="5" class="example-viewport">
+      
+        <div>
+          <mat-card *ngFor="let i of products | filter:searchText" >
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image" style="background-image: url({{i.img}});"></div>
+
+                <mat-card-title style="text-align: center;" >{{i.product_name}}</mat-card-title>
+                <mat-card-subtitle>
+                </mat-card-subtitle>
+                <mat-checkbox style="position: absolute;
+                right: 5px;
+                top: 5px;" (click)="deleteClick(i)"></mat-checkbox>
+              </mat-card-header>
+
+              <mat-divider></mat-divider>
+              
+
+              <mat-card-content>
+
+                
+              </mat-card-content>
+            <div #background style="height:350px;background-image: url({{i.img}}); height: 200px;background-size: 250px 210px; background-repeat: no-repeat;">
+                <div style="text-align: center;">
+                  <button mat-raised-button color="basic" style="width: 200px;margin-bottom: 20px;" *ngIf="price">Price:{{i.price}}</button>
+                  <br>
+                  <button mat-raised-button color="basic" style="width: 200px;margin-bottom: 20px;" *ngIf="qty">Qty:{{i.qty}}</button>
+                  <br>
+                  <button mat-raised-button color="basic" style="width: 200px;margin-bottom: 20px;" *ngIf="ManuFacturor">Manufactured:{{i.manufacturer}}</button>  
+                </div>
+                                
+              </div>
+              <mat-divider></mat-divider>
+              <mat-card-actions style="text-align:center;margin-bottom: 0px;">
+               
+                
+                <button mat-button color="accent" (click)="openDialog3(i.id)">View Product</button>
+                
+              </mat-card-actions>
+        </mat-card>
+        </div>
+        
+      </cdk-virtual-scroll-viewport>
+    
+
+
+
+      <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+      
      
-  </mat-sidenav> 
-  
-  <mat-sidenav-content>
-    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
-  </mat-sidenav-content>
-  
-</mat-sidenav-container>
+      
+      <section #constant>
 
- 
+        <div class="example-button-row" fxLayout="row" fxLayout.xs="column">
+
+          <button mat-raised-button color="primary" (click)="openDialog()">Add Product</button>
+          <button mat-raised-button color="accent" id="update" [disabled]="checkedCount" (click)="openDialog2()">Update
+            Product</button>
+          <button mat-raised-button color="warn" [disabled]="checkedCount" (click)="delete()">Delete Product</button>
+        </div>
+      </section>
+
+      
 
 
-<router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+
+  <!-- <app-home></app-home> -->
+  <!-- <app-add-dialog></app-add-dialog> -->
+  <router-outlet></router-outlet>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>About</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Product Inventory Management</h3>
+  <p>Application Contains following features</p>
+
+  <h3><b>Search Product</b></h3>
+  <p>Wherever list of records are viewed, there should be Search filter provided to only display a subset <br> of records, so that user can quickly see it when there are many records to be viewed.</p>
+    <mat-divider></mat-divider>
+    <h3><b>Responsive UI</b></h3>
+    <p>have a responsive user interface and make the user interface better, you should use Bootstrap or <br>Angular Material. Also, make the UI as modern as possible by using Bootstrap Cards, Grid,<br> Carousel etc. instead of having just a plain table.
+        Appropriate input fields should be used to make it user friendly. </p>
+        <mat-divider></mat-divider>   
+       <h3><b>Customozation</b></h3> 
+       <p>While viewing product list, when different fields of the products are displayed, customiz<br>ation should be provided to display only a subset of the fields.</p>
+       <mat-divider></mat-divider>
+       <h3><b>Test Cases</b></h3>
+       <p>41 Test Cases Angular Component Class, Component DOM test cases has to be implemented <br> and the Karma output </p>
+       <mat-divider></mat-divider>
+       <h3><b>Registration and Authentication</b></h3>
+       <p>Users should be able to register to identify themselves to the system so that they can<br> sign in and perform add, edit and delete operations. Viewing of product list summary should be all<br>owed even without signing in.</p>
+       <mat-divider></mat-divider>    
+    </mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close></button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>

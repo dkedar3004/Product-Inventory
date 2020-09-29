@@ -10,59 +10,15 @@
     <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
         <ul fxLayout fxLayoutGap="15px" class="navigation-items">
             <li>
-                <a routerLink="/owner">Log In / Sign Up</a>
+                <a *ngIf="!hasloggedin" (click)="openDialogBox()">Log In / Sign Up</a>
+                <a *ngIf="hasloggedin" (click)="logout()">Log out</a>
             </li>
             <li>
-                <a routerLink="/account">About</a>
+                <a  (click)="about()">About</a>
+            </li>
+            <li>
+                <a *ngIf="hasloggedin" (click)="viewProfile()">View Profile</a>
             </li>
         </ul>
     </div>
-  </mat-toolbar>
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Search Product</mat-label>
-      <input matInput placeholder="Ex. Product 1" value="" [(ngModel)]="searchText" name="search">
-    </mat-form-field>
-
-
-  <form class="form-control">
-
-  </form>  
-    <section class="example-section">
-        <mat-checkbox class="example-margin" (click)="priceCheck()">Price</mat-checkbox>
-        <mat-checkbox class="example-margin" (click)="qtyCheck()">Quantity</mat-checkbox>
-        <mat-checkbox class="example-margin"  (click)="manuCheck()">ManuFacturor</mat-checkbox>
-      </section>
-
-     
-
-
-
-
-<mat-selection-list #shoes class="products">
-    <mat-list-option *ngFor="let item of array2 | filter:searchText">
-        <mat-list-item (click)="deleteClick(item.name)">
-            <img matListAvatar src="{{item.img}}" alt="...">
-            <p class="space" [innerHTML]="item.name">{{item.name}}</p>
-            <p class="space" *ngIf="price">Price : {{item.price}}</p>
-            <p class="space" *ngIf="qty">Qty :{{item.qty}}</p>
-            <p class="space" *ngIf="ManuFacturor">Qty :{{item.manufacturer}}</p>
-        </mat-list-item>
-     
-    </mat-list-option>
-  </mat-selection-list>
-
-
-  <p #select>
-    {{shoes.selectedOptions.selected.length}}
-  </p>
-
-  <section>
-    
-    <div class="example-button-row"  fxLayout="row" fxLayout.xs="column">
-      <button mat-raised-button color="primary">Add Product</button>
-      <button mat-raised-button color="accent">Update Product</button>
-      <button mat-raised-button color="warn" [disabled]="checkedCount" (click)="delete()">Delete Products</button>
-    </div>
-  </section>
-  
+</mat-toolbar>

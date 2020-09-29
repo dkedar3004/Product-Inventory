@@ -1,0 +1,58 @@
+<html>
+  <head>
+
+  </head>
+  <body onunload="checkSave()">
+    <h2 mat-dialog-title>Add Product</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="example-form" #postForm="ngForm" id="form">
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="Ex.Samsung" ngModel name="product_name" required  #product_name="ngModel">
+        <span class="help-block" *ngIf="!product_name.valid && product_name.touched">Please enter a valid Product Name!</span>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Product Description</mat-label>
+        <textarea matInput placeholder="Product Description" rows="5" ngModel name="description" minlength="10"></textarea>
+        <span class="help-block" *ngIf="!price.valid && price.touched">Price must be a number</span>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Manufacturer</mat-label>
+        <input matInput placeholder="Ex.Amazon" ngModel name="manufacturer">
+      </mat-form-field>
+    </p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Image Url</mat-label>
+      <input matInput placeholder="Ex:https://www.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png" ngModel
+        name="img">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Logo URL</mat-label>
+      <input matInput placeholder="Ex:https://www.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png" ngModel
+        name="logo"  #logo="ngModel">
+        
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Price($)</mat-label>
+      <input matInput placeholder="" ngModel name="price" required number #price="ngModel"  pattern="[0-9]+">
+      <span class="help-block" *ngIf="!price.valid && price.touched">Price must be a number</span>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Quantity</mat-label>
+      <input matInput placeholder="" ngModel name="qty" required number #qty="ngModel" pattern="[0-9]+">
+      <span class="help-block" *ngIf="!qty.valid && qty.touched">Quantity  must be a number</span>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial  [disabled]="!postForm.valid" (click)="addProduct(postForm.value)">Add Product</button>
+</mat-dialog-actions>
+
+
+
+
+
+  </body>
+</html>

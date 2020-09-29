@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "firstName": "Rajat",
+      "lastName": "Kumar",
+      "email": "kumar.rajat11114@gmail.com",
+      "password": "123456",
+      "location": "Gurgoan",
+      "phoneNumber": 9868444505,
+      "id": 1
+    },
+    {
+      "firstName": "Rohit",
+      "lastName": "Shukla",
+      "email": "rohitshukla.shukla07@gmail.com",
+      "password": "1234567",
+      "location": "noida",
+      "phoneNumber": 7772022626,
+      "id": 2
+    },
+    {
+      "firstName": "Kedar",
+      "lastName": "Dhoke",
+      "email": "dkedar3004@gmail.com",
+      "password": "pass@123",
+      "location": "Pune",
+      "phoneNumber": 9890038465,
+      "id": 3
+    },
+    {
+      "firstName": "kedar",
+      "lastName": "dhoke",
+      "email": "kedar@email.com",
+      "password": "pass@123",
+      "location": "pune",
+      "phoneNumber": 9890038465,
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "product_name": "Apple Iphone",
+      "description": "128GB of RAM & Available in white color",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/51o5RmQtroL._SX522_.jpg",
+      "logo": "https://images-na.ssl-images-amazon.com/images/I/51o5RmQtroL._SX522_.jpg",
+      "qty": "0",
+      "price": "11,000",
+      "manufacturer": "Apple",
+      "id": 1
+    },
+    {
+      "product_name": "ChargerMob",
+      "description": "This is charger of 45W developed by Samsung",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/71lQJ7d2ebL._AC_SX679_.jpg",
+      "logo": "https://images-na.ssl-images-amazon.com/images/I/71lQJ7d2ebL._AC_SX679_.jpg",
+      "qty": 0,
+      "price": "45",
+      "manufacturer": "Samsung",
+      "id": 3
+    },
+    {
+      "product_name": "Sony TV",
+      "description": "This is Sony TV , 32 Inches",
+      "img": "https://i.gadgets360cdn.com/products/televisions/large/1548155169_832_sony_32-inch-led-full-hd-tv-klv-32w672f.jpg",
+      "logo": "https://i.gadgets360cdn.com/products/televisions/large/1548155169_832_sony_32-inch-led-full-hd-tv-klv-32w672f.jpg",
+      "qty": "0",
+      "price": "23000",
+      "manufacturer": "Sony",
+      "id": 4
+    },
+    {
+      "product_name": "Watch",
+      "description": "This is Titan Watch",
+      "img": "https://staticimg.titan.co.in/Titan/Catalog/90102SL01_1.jpg?pView=pdp",
+      "logo": "https://staticimg.titan.co.in/Titan/Catalog/90102SL01_1.jpg?pView=pdp",
+      "qty": "0",
+      "price": "2343",
+      "manufacturer": "Titan",
+      "id": 5
+    },
+    {
+      "product_name": "Washing Machine",
+      "description": "This is Washing Machine by Godrej",
+      "manufacturer": "Godrej",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/71T%2B-iy7TvL._SL1500_.jpg",
+      "logo": "https://images-na.ssl-images-amazon.com/images/I/71T%2B-iy7TvL._SL1500_.jpg",
+      "price": "3422",
+      "qty": "2",
+      "id": 6
+    },
+    {
+      "product_name": "Redmi 6 A",
+      "description": "This is Redmi",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/71oswzKOKbL._SY500_.jpg",
+      "logo": "https://images-na.ssl-images-amazon.com/images/I/71oswzKOKbL._SY500_.jpg",
+      "qty": "2",
+      "price": "45",
+      "manufacturer": "MI",
+      "id": 8
+    },
+    {
+      "product_name": "JBL Speaker",
+      "description": "This is Good Speaker",
+      "manufacturer": "JBL",
+      "img": "https://assets.croma.com/medias/sys_master/images/images/hbe/h89/8945008705566/212549_pjpeg.jpg",
+      "logo": "https://assets.croma.com/medias/sys_master/images/images/hbe/h89/8945008705566/212549_pjpeg.jpg",
+      "price": "56",
+      "qty": "2",
+      "id": 9
+    },
+    {
+      "product_name": "pTron Headphones",
+      "description": "Loudy Headphones by pTron",
+      "manufacturer": "pTron",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/51Po4C5yyBL._SX679_.jpg",
+      "logo": "https://images-na.ssl-images-amazon.com/images/I/51Po4C5yyBL._SX679_.jpg",
+      "price": "56",
+      "qty": "1",
+      "id": 10
+    },
+    {
+      "product_name": "Tets",
+      "description": "",
+      "manufacturer": "",
+      "img": "",
+      "logo": "",
+      "price": "33",
+      "qty": "45",
+      "id": 11
+    }
+  ]
+}

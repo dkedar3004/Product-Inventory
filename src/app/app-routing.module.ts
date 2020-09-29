@@ -1,10 +1,15 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './home/home.component';
+import { Component, NgModule } from '@angular/core';
+import { Routes, RouterModule ,Router } from '@angular/router';
+import {AppComponent} from './app.component';
+import {AddDialogComponent}  from  './AddDialog/add-dialog.component';
+import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
+import { ViewDialogComponent } from './view-dialog/view-dialog.component';
+import { GraphDialogueComponent } from './graph-dialogue/graph-dialogue.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-//  {path: 'home', component: HomeComponent},
-//  {path: '', component: HomeComponent, pathMatch: 'full'}
+{path: 'products', loadChildren: './Products/product.module#ProductsModule'}
+
 ];
 
 @NgModule({
